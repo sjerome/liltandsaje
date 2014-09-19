@@ -9,9 +9,8 @@ def hello():
 	return render_template('index.html', color=get_color())
 
 def get_color():
-	today = date.today()
 	hashy = hashlib.sha1()
-	hashy.update(str(today))
+	hashy.update(datetime.today().strftime("%D"))
 	return hashy.hexdigest()[-6:]
 
 if __name__ == "__main__":
