@@ -12,8 +12,8 @@ def hello():
 def get_color():
 	today = date.today()
 	hashy = hashlib.sha1()
-	hashy.update(today)
-	print hashy 
+	hashy.update(str(today))
+	print hashy.hexdigest()[-6:]
 
 if __name__ == "__main__":
 	app.run()
