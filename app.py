@@ -10,7 +10,7 @@ def hello():
 
 def get_color():
 	hashy = hashlib.sha1()
-	hashy.update(datetime.today().strftime("%D"))
+	hashy.update(datetime.today().replace(tzinfo=timezone('EST')).strftime("%D"))
 	return hashy.hexdigest()[-6:]
 
 if __name__ == "__main__":
