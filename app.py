@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from datetime import date
+from datetime import *
 import hashlib
 
 app = Flask(__name__)
