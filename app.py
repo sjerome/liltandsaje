@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from datetime import date
 import hashlib
 
@@ -6,14 +6,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-	get_color()
-	return "Hello World!"
+	return render_template('index.html', color=get_color())
 
 def get_color():
 	today = date.today()
 	hashy = hashlib.sha1()
 	hashy.update(str(today))
-	print hashy.hexdigest()[-6:]
+	return hashy.hexdigest()[-6:]
 
 if __name__ == "__main__":
 	app.run()
